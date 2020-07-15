@@ -19,11 +19,11 @@ RUN wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz && \
 # https://golang.org/doc/gopath_code.html#GOPATH
 # https://github.com/golang/go/wiki/SettingGOPATH
 
-RUN echo "GOPATH=/root/go" >> /etc/environment && \
-  echo "GOBIN=/usr/local/go/bin" >> /etc/environment && \
-  echo "PATH=$PATH:/usr/local/go/bin" >> /etc/environment
+RUN echo "GOPATH=/root/go" >> /etc/profile.d/govars.sh && \
+  echo "GOBIN=/usr/local/go/bin" >> /etc/profile.d/govars.sh && \
+  echo "PATH=$PATH:/usr/local/go/bin" >> /etc/profile.d/govars.sh
 
-RUN . /etc/environment
+RUN . /etc/profile
 
 WORKDIR /root/go/src/
 RUN git clone https://github.com/jarirajari/have-i-been-bloomed.git
