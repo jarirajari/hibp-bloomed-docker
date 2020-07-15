@@ -12,8 +12,8 @@ RUN apt -y install nano \
   nano
 
 WORKDIR /root/go/
-RUN wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz && \
-  tar -xvf go1.11.linux-amd64.tar.gz && \
+RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz && \
+  tar -xvf go1.13.linux-amd64.tar.gz && \
   mv go /usr/local
 
 # https://golang.org/doc/gopath_code.html#GOPATH
