@@ -11,10 +11,12 @@ RUN apt -y install nano \
   build-essential \
   nano
 
+ARG GOLANG=go1.15.linux-amd64.tar.gz
 WORKDIR /root/go/
-RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz && \
-  tar -xvf go1.13.linux-amd64.tar.gz && \
+RUN wget https://golang.org/dl/${GOLANG} && \
+  tar -xvf ${GO_LANG} && \
   mv go /usr/local
+RUN rm -f ${GO_LANG}
 
 # https://golang.org/doc/gopath_code.html#GOPATH
 # https://github.com/golang/go/wiki/SettingGOPATH
