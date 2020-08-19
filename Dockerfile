@@ -31,8 +31,14 @@ RUN . /etc/profile
 WORKDIR /root/go/src/
 RUN git clone https://github.com/jarirajari/have-i-been-bloomed.git
 
-ARG DATA_FILE=pwned-passwords-2.0.txt.7z
+# Download latest database file of pawned passwords from
+# https://haveibeenpwned.com/Passwords
+# and rename it using the following name.
+# The file MUST be in Docker context and NOT a symlink!!!
+ARG DATA_FILE=pwned-passwords.txt.7z
 WORKDIR /root/go/src/have-i-been-bloomed/
+
+COPY ${DATA_FILE} ${DATA_FILE}
 RUN make
 RUN rm -f ${DATA_FILE}
 
