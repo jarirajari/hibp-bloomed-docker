@@ -20,6 +20,11 @@ Builds on:
 - Adewes's Bloom filter and server in Go: https://github.com/adewes
 - Docker: https://www.docker.com/
 
+Requirements for building a Docker image:
+- Download the file containing the password data
+- Rename the file as "pwned-passwords.txt.7z"
+- Copy the file to this directory. Note! Symlink does not work!
+
 How to use locally:
 - sudo bash build.sh    # builds docker image
 - sudo bash start.sh    # starts docker container using the built image
