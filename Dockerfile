@@ -43,6 +43,8 @@ COPY ${DATA_FILE} ${DATA_FILE}
 RUN make bloom-tool server
 RUN ln -sf /root/go/bin/hibb /usr/local/bin/hibb
 RUN ln -sf /root/go/bin/bloom /usr/local/bin/bloom
+# Dirty hack for monitoring progress of 10+ GB files...
+# RUN bash -c "while true; do echo `du -sh pwned-passwords.bloom.gz`; sleep 60;done" 2>&1 &
 RUN make bloom-filter
 
 RUN rm -f ${DATA_FILE}
