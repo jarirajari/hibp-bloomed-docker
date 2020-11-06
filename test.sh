@@ -1,4 +1,6 @@
 #!/bin/bash
-curl -XGET -i http://localhost:10101/check?admin
-curl -XGET -i http://localhost:10101/check-sha1?9D3DF7C75CC5B8ECE51E28772BF953D96CAB3A9E
-
+printf "\nIs not in the list... => "
+curl -XGET http://localhost:10101/check?admin
+printf "\nIs in the list! => "
+curl -XGET http://localhost:10101/check-sha1?7FE890B89F8845387AD1B4377CAB1DAB0053682C
+printf "\n\n"
